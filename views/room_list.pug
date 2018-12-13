@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+    each room in room_list
+      li 
+        a(href=room.url) #{room.roomNumber} 
+        |  (#{room.building})
+
+    else
+      li There are no rooms.
+
+       div('text-align:center')
+      div('display:inline-block')
+    img.img-responsive(src='/images/TwistRooms.png', alt='Twist Rooms')

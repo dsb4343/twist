@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='startTime') Start Time:
+      input#startTime.form-control(type='text' placeholder='12:00' name='startTime' required='true' value=(undefined===session ? '' : session.startTime) )
+      label(for='endTime') End Time:
+      input#endTime.form-control(type='text' placeholder='1:00' name='endTime' required='true' value=(undefined===session ? '' : session.endTime) )
+    button.btn.btn-primary(type='submit') Submit
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

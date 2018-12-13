@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 #{title}
+  
+  p Do you really want to delete this Highschool?
+  
+  div(style='margin-left:20px;margin-top:20px')
+    p #[strong ID:] #{highschool._id}
+  
+    p #[strong Name:] 
+      a(href=highschool.url) #{highschool.name}
+        
+    form(method='POST' action='')
+      div.form-group
+        input#highschoolid.form-control(type='hidden',name='highschoolid', required='true', value=highschool._id )
+
+      button.btn.btn-primary(type='submit') Delete

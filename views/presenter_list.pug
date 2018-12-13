@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+    each presenter in presenter_list
+      li 
+        a(href=presenter.url) #{presenter.name} 
+
+    else
+      li There are no presenters.
+
+       div('text-align:center')
+      div('display:inline-block')
+    img.img-responsive(src='/images/TwistPresenters.png', alt='Twist Presenters')

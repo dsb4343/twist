@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='topic') Topic:
+      select#topic.form-control(type='select', placeholder='Select topic' name='topic' required='true' )
+        for topic in topics
+          if schedule
+            option(value=topic._id selected=(topic._id.toString()==schedule.topic ? 'selected' : false) ) #{topic.title}
+          else
+            option(value=topic._id) #{topic.title}
+    div.form-group
+      label(for='presenter') Presenter:
+      select#presenter.form-control(type='select', placeholder='Select presenter' name='presenter' required='true' )
+        for presenter in presenters
+          if schedule
+            option(value=presenter._id selected=(presenter._id.toString()==schedule.presenter ? 'selected' : false) ) #{presenter.name}
+          else
+            option(value=presenter._id) #{presenter.name}
+    div.form-group
+      label(for='room') Room:
+      select#room.form-control(type='select', placeholder='Select room' name='room' required='true' )
+        for room in rooms
+          if schedule
+            option(value=room._id selected=(room._id.toString()==schedule.room ? 'selected' : false) ) #{room.roomNumber}
+          else
+            option(value=room._id) #{room.roomNumber}, #{room.building}
+    div.form-group
+      label(for='session') Session:
+      select#session.form-control(type='select', placeholder='Select session' name='session' required='true' )
+        for session in sessions
+          if schedule
+            option(value=session._id selected=(session._id.toString()==schedule.session ? 'selected' : false) ) #{session.time}
+          else
+            option(value=session._id) #{session.time}
+    
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

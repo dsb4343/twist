@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='firstName') First Name:
+      input#firstName.form-control(type='text' placeholder='First name' name='firstName' required='true' value=(undefined===participant ? '' : participant.firstName) )
+      label(for='lastName') Last Name:
+      input#lastName.form-control(type='text' placeholder='Last name' name='lastName' required='true' value=(undefined===participant ? '' : participant.lastName) )
+      label(for='address') Address:
+      input#address.form-control(type='text' placeholder='Address' name='address' required='true' value=(undefined===participant ? '' : participant.address) )
+      label(for='email') Email:
+      input#email.form-control(type='text' placeholder='Email' name='email' required='true' value=(undefined===participant ? '' : participant.email) )
+      div.form-group
+      label(for='school') School:
+      select#highschool.form-control(type='select', placeholder='Select high school' name='highSchool' required='true' )
+        for highSchool in highSchool_list
+          if participant
+            option(value=highSchool._id selected=(highSchool._id.toString()==participant.highSchool ? 'selected' : false) ) #{highSchool.name}
+          else
+            option(value=highSchool._id) #{highSchool.name}
+    button.btn.btn-primary(type='submit') Submit
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

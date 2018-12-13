@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 #{title}
+  
+  p Do you really want to delete this Schedule?
+  
+  div(style='margin-left:20px;margin-top:20px')  
+    p #[strong Topic:] 
+      a(href=schedule.topic.url) #{schedule.topic.title}
+    p #[strong Presenter: ]
+      a(href=schedule.presenter.url) #{schedule.presenter.name}
+    p #[strong Room:] 
+      a(href=schedule.room.url) #{schedule.room.roomNumber}
+    p #[strong Session:] 
+      a(href=schedule.session.url) #{schedule.session.time}
+    
+    form(method='POST' action='')
+      div.form-group
+        input#scheduleid.form-control(type='hidden',name='scheduleid', required='true', value=schedule._id )
+
+      button.btn.btn-primary(type='submit') Delete

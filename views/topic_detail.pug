@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1 Topic: #{topic.title}
+  
+  p #[strong Description:] #{topic.description}
+    
+  div(style='margin-left:20px;margin-top:20px')
+  
+    h4 Lectures
+    
+    dl
+    each schedule in schedules
+      dd 
+        a(href=schedule.url) #[strong #{schedule.presenter.name}]
+        p #[strong Time:] #{schedule.session.time}<br> #[strong Room:] #{schedule.room.roomNumber} (#{schedule.room.building})
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+  hr
+  p
+      a(href=topic.url+'/delete') Delete Topic
+  p
+      a(href=topic.url+'/update') Update Topic

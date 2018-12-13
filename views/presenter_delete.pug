@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1 #{title}
+  
+  p Do you really want to delete this Presenter?
+  
+  div(style='margin-left:20px;margin-top:20px')
+    p #[strong ID:] #{presenter._id}
+  
+    p #[strong Name:] 
+      a(href=presenter.url) #{presenter.name}
+    p #[strong Occupation:] #{presenter.occupation}
+
+    p #[strong Main Phone:] #{presenter.mainPhone}
+    
+    p #[strong Mobile Phone:] #{presenter.mobilePhone}
+    
+    p #[strong Email:] #{presenter.email}
+    
+    form(method='POST' action='')
+      div.form-group
+        input#presenterid.form-control(type='hidden',name='presenterid', required='true', value=presenter._id )
+
+      button.btn.btn-primary(type='submit') Delete

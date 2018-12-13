@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+  h1 Schedule: #{schedule._id}
+  
+  div(style='margin-left:20px;margin-top:20px')
+  
+    p #[strong Topic:] 
+      a(href=schedule.topic.url) #{schedule.topic.title}
+    p #[strong Presenter: ]
+      a(href=schedule.presenter.url) #{schedule.presenter.name}
+    p #[strong Room:] 
+      a(href=schedule.room.url) #{schedule.room.roomNumber}, #{schedule.room.building}
+    p #[strong Session:] 
+      a(href=schedule.session.url) #{schedule.session.time}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+  hr
+  p
+      a(href=schedule.url+'/delete') Delete Schedule
+  p
+      a(href=schedule.url+'/update') Update Schedule

@@ -1,0 +1,31 @@
+extends layout
+
+block content
+
+  h1 Presenter: #{presenter.name}
+  
+  p #[strong Occupation:] #{presenter.occupation}
+  
+  p #[strong Email:] #{presenter.email}
+  
+  p #[strong Main Phone:] #{presenter.mainPhone}
+  
+  p #[strong Mobile Phone:] #{presenter.mobilePhone}
+  
+  div(style='margin-left:20px;margin-top:20px')
+  
+    h4 Lectures
+    
+    dl
+    each schedule in schedules
+      dd 
+        a(href=schedule.url) #[strong #{schedule.topic.title}]
+        p #[strong Time:] #{schedule.session.time}<br> #[strong Room:] #{schedule.room.roomNumber} (#{schedule.room.building})
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+  hr
+  p
+      a(href=presenter.url+'/delete') Delete Presenter
+  p
+      a(href=presenter.url+'/update') Update Presenter

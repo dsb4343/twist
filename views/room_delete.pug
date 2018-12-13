@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 #{title}
+  
+  p Do you really want to delete this Room?
+  
+  div(style='margin-left:20px;margin-top:20px')
+    p #[strong ID:] #{room._id}
+  
+    p #[strong Room Number:] 
+      a(href=room.url) #{room.roomNumber}
+    
+    p #[strong Building:] #{room.building}
+    
+    p #[strong Capacity:] #{room.capacity}
+        
+    form(method='POST' action='')
+      div.form-group
+        input#roomid.form-control(type='hidden',name='roomid', required='true', value=room._id )
+
+      button.btn.btn-primary(type='submit') Delete

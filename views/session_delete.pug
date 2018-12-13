@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 #{title}
+  
+  p Do you really want to delete this Session?
+  
+  div(style='margin-left:20px;margin-top:20px')
+    p #[strong ID:] #{session._id}
+  
+    p #[strong Time:] 
+      a(href=session.url) #{session.time}
+    
+    form(method='POST' action='')
+      div.form-group
+        input#sessionid.form-control(type='hidden',name='sessionid', required='true', value=session._id )
+
+      button.btn.btn-primary(type='submit') Delete

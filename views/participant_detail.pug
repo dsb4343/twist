@@ -1,0 +1,26 @@
+extends layout
+
+block content
+
+  h1 Participant: #{participant.name}
+  
+  p #[strong School: ]
+    a(href=participant.highSchool.url) #{participant.highSchool.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Participant
+    
+    dl
+    each highSchool in highSchools
+      dt 
+        a(href=highschool.url) #{highSchool.name}
+
+    else
+      p This participant has no schedules.
+      
+  hr
+  p
+      a(href=participant.url+'/delete') Delete Participant
+  p
+      a(href=participant.url+'/update') Update Participant

@@ -2,4 +2,28 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+    
+  Body
+
+    p Welcome to Twist.
+
+  h1 Dynamic content
+
+  if error
+    p Error getting dynamic content.
+  else
+    p The database has the following record counts:
+
+    ul
+      li #[strong Participants:] !{data.participant_count}
+      li #[strong Presenters:] !{data.presenter_count}
+      li #[strong Sessions:] !{data.session_count}
+      li #[strong Topics:] !{data.topic_count}
+      li #[strong Rooms:] !{data.room_count}
+      li #[strong Schedules:] !{data.schedule_count}
+      li #[strong High Schools:] !{data.highschool_count}
+    
+ 
+    div('text-align:center')
+      div('display:inline-block')
+    img.img-responsive(src='/images/TwistImage.jpg', alt='Twist')

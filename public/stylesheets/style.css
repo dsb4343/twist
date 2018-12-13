@@ -1,8 +1,54 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+body{
+    background-color:  lightgray;
+    color: #512888;
+   
 }
 
-a {
-  color: #00B7FF;
+h1, h2, h3, h4, label, p, li, ul, a{
+  color: #512888;
 }
+
+.btn-primary{
+  background-color: #512888;
+}
+
+.btn-info{
+  background-color: #512888;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+    margin-bottom: 25px;
+    border-radius: 0;
+    width: 100%;
+    position: absolute;
+   color: black;
+    height: 5%;
+    margin-top: 0;
+  }
+  
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {height: 450px}
+  
+  
+  /* Set gray background color and 100% height */
+  .sidenav {
+    padding-top: 20px;
+    background-color: lightgray;
+    height: 100%;
+  }
+  
+  
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  @media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height:auto;} 
+  }

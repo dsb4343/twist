@@ -1,7 +1,90 @@
 doctype html
-html
+html(lang='en')
   head
+
     title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     link(rel='stylesheet', href='/stylesheets/style.css')
+
+nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='#') 
+    #myNavbar.collapse.navbar-collapse
+      ul.nav.navbar-nav
+
+
+  
   body
-    block content
+
+  
+    div(class='container-fluid')
+      div(class='row')
+        div(class='col-sm-2')
+          block sidebar
+            ul(class='sidebar-nav')
+              li 
+
+              .container
+                a.btn.btn-info(href='/index', role='button' ) Home
+              br                                
+              .container
+                h4 Navigate: Area
+   
+                .dropdown
+                  button#menu1.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+                    | Selection 
+                    span.caret
+                  ul.dropdown-menu(role='menu', aria-labelledby='menu1')
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/highschools') All Highschools
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/participants') All Participants
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/presenters') All Presenters
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/rooms') All Rooms
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/sessions') All Sessions
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/topics') All Topics
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/schedules') All Schedules
+                br              
+              .container
+                h4 Create: New
+   
+                .dropdown
+                  button#menu1.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+                    | Selection 
+                    span.caret
+                  ul.dropdown-menu(role='menu', aria-labelledby='menu1')
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/highschool/create') Highschool
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/participant/create') Participant
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/presenter/create') Presenter
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/room/create') Room
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/session/create') Session
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/topic/create') Topic
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/index/schedule/create') Schedule
+
+
+
+        div(class='col-sm-10')
+
+          block content
+

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 #{title}
+  
+  p Do you really want to delete this Participant?
+  
+  div(style='margin-left:20px;margin-top:20px')
+    p #[strong ID:] #{participant._id}
+  
+    p #[strong Name:] 
+      a(href=participant.url) #{participant.name}
+    p #[strong Address:] #{participant.address}
+
+    p #[strong Email:] #{participant.email}
+    
+    form(method='POST' action='')
+      div.form-group
+        input#participantid.form-control(type='hidden',name='participantid', required='true', value=participant._id )
+
+      button.btn.btn-primary(type='submit') Delete

@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+  h1 High School: #{highSchool.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Participants
+    
+    dl
+      each participant in highSchool_participants
+        dd 
+          a(href=participant.url) #{participant.name}
+
+      else
+        p This school has no participants.
+        
+  hr
+  p
+    a(href=highSchool.url+'/delete') Delete High School
+  p
+    a(href=highSchool.url+'/update') Update High School

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+    each schedule in schedule_list
+      li 
+        a(href=schedule.url) #{schedule.session.time} 
+        |  Room: #{schedule.room.roomNumber}, #{schedule.room.building}
+        |  (#{schedule.topic.title} - #{schedule.presenter.name}) 
+
+    else
+      li There are no schedules.
+
+      
+      div('text-align:center')
+      div('display:inline-block')
+    img.img-responsive(src='/images/TwistSchedule.png', alt='Twist Schedule')

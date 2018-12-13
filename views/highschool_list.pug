@@ -1,0 +1,15 @@
+extends layout
+block content
+  h1= title 
+
+  ul
+    each highschool in highschool_list
+      li 
+        a(href=highschool.url) #{highschool.name}
+
+    else
+      li There are no highschools.
+
+      div('text-align:center')
+  div('display:inline-block')
+    img.img-responsive(src='/images/PolytechSLC.jpg', alt='Twist Schools')

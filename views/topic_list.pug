@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+    each topic in topic_list
+      li 
+        a(href=topic.url) #{topic.title} 
+        //|  (#{book.author.name})
+
+    else
+      li There are no topics.
+
+    
+      div('text-align:center')
+      div('display:inline-block')
+    img.img-responsive(src='/images/TwistTopics.png', alt='Twist Topics')

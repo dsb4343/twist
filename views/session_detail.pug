@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+  h1 Session: #{session.time}
+  
+  div(style='margin-left:20px;margin-top:20px')
+  
+    h4 Assignments
+    
+    dl
+    each schedule in schedules
+      dd 
+        a(href=schedule.url) #[strong #{schedule.topic.title}]
+        p #[strong Presenter:] #{schedule.presenter.name}<br> #[strong Room:] #{schedule.room.roomNumber} (#{schedule.room.building})
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+  hr
+  p
+      a(href=session.url+'/delete') Delete Session
+  p
+      a(href=session.url+'/update') Update Session
